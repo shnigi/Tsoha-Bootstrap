@@ -1,7 +1,7 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](http://ahni.users.cs.helsinki.fi/)
+* [Linkki sovellukseeni](http://ahni.users.cs.helsinki.fi/vmp)
 * [Linkki dokumentaatiooni](https://github.com/shnigi/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
 
 ## Työn aihe
