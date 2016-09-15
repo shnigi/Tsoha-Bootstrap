@@ -12,6 +12,11 @@
       View::make('stories.html');
     }
 
+    public static function story(){
+      // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
+      View::make('story.html');
+    }
+
     public static function topten(){
       // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
       View::make('topten.html');

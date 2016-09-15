@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>Käyttäjä</th>
+    <th>Tarina</th>
+    <th>Pisteet</th>
+    <th>Samaa mieltä?</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Seppo</td>
+    <td>Kävin paskalla ja vessapaperi loppui! Ai että kun pistää vihaksi.</td>
+    <td>120</td>
+    <td><button class="btn btn-success btn-margin">Vituttaa</button><button class="btn btn-warning">Älä valita</button></td>
+  </tr>
+</tbody>
+</table>
+
+<h2>Kommentoi</h2>
+<form>
+<div class="form-group">
+  <textarea class="form-control" rows="5" id="comment"></textarea>
+</div>
+<button class="btn btn-success">Lähetä</button>
+</form>
+<br>
+<h2>Kommentit</h2>
+<div class="panel panel-default">
+<div class="panel-heading">
+<strong>Jorma</strong> <span class="text-muted">Kommentoi 3 päivää sitten</span>
+</div>
+<div class="panel-body">
+No voihan nenä!
+</div><!-- /panel-body -->
+</div><!-- /panel panel-default -->
+
+{% endblock %}

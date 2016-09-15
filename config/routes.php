@@ -8,6 +8,10 @@
     HelloWorldController::stories();
   });
 
+  $routes->get('/tarina/:id', function($id) {
+    HelloWorldController::story();
+  });
+
   $routes->get('/topten', function() {
     HelloWorldController::topten();
   });
