@@ -1,2 +1,2 @@
 -- Lisää DROP TABLE lauseet tähän tiedostoon
-DROP TABLE appuser, stories, comments;
+DROP TABLE IF EXISTS appuser, stories, comments CASCADE;

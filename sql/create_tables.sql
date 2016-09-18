@@ -1,14 +1,14 @@
 CREATE TABLE appuser(
-  id SERIAL PRIMARY KEY,
-  username varchar(50) NOT NULL FOREIGN KEY,
+  username varchar(50) NOT NULL UNIQUE PRIMARY KEY,
   password varchar(50) NOT NULL,
+  emailaddr varchar(200) NOT NULL,
   registerdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE stories(
   id SERIAL PRIMARY KEY,
   points INTEGER,
-  story varchar(5000) NOT NULL,
+  story text NOT NULL,
   updated timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   createdby varchar(50) REFERENCES appuser(username)
 );
