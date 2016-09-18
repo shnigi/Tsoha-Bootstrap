@@ -2,6 +2,7 @@ CREATE TABLE appuser(
   username varchar(50) NOT NULL UNIQUE PRIMARY KEY,
   password varchar(50) NOT NULL,
   emailaddr varchar(200) NOT NULL,
+  isadmin boolean,
   registerdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -17,5 +18,6 @@ CREATE TABLE comments(
   id SERIAL PRIMARY KEY,
   comment varchar(2000),
   updated timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  createdby varchar(50) REFERENCES appuser(username)
+  createdby varchar(50) REFERENCES appuser(username),
+  story_id INTEGER REFERENCES stories(id)
 );
