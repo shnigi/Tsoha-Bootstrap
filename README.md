@@ -3,6 +3,10 @@ Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](http://ahni.users.cs.helsinki.fi/vmp)
 * [Linkki dokumentaatiooni](https://github.com/shnigi/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
+* [Linkki Tarinoiden selaamiseen] (http://ahni.users.cs.helsinki.fi/vmp/selaa)
+* [Linkki Top10 listalle] (http://ahni.users.cs.helsinki.fi/vmp/topten)
+* [Linkki Yksittäiseen Tarinaan, josta muokkaukset kommentteihin ja tarinaan tapahtuvat] http://ahni.users.cs.helsinki.fi/vmp/tarina/id
+
 
 ## Työn aihe
 
