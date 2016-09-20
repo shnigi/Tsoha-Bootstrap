@@ -5,7 +5,7 @@
   });
 
   $routes->get('/selaa', function() {
-    HelloWorldController::stories();
+    StoryController::index();
   });
 
   $routes->get('/tarina/:id', function($id) {

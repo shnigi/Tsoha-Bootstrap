@@ -52,16 +52,13 @@
   </tr>
 </thead>
 <tbody>
+  {% for story in stories %}
   <tr>
-    <td>Seppo</td>
-    <td>Kävin paskalla ja vessapaperi loppui! Ai että kun pistää vihaksi.</td>
+    <td>{{story.createdby}}</td>
+    <td>{{story.story}}</td>
     <td><button class="btn btn-success btn-margin">Vituttaa</button><button class="btn btn-warning">Älä valita</button></td>
   </tr>
-  <tr>
-    <td>Anonyymi</td>
-    <td>Olin juuri menossa bussiin, ensinnäkin matkakortista oli loppunut aika ja sen lisäksi lompakkoni levisi lattialle... Lue lisää</td>
-      <td><button class="btn btn-success btn-margin">Vituttaa</button><button class="btn btn-warning">Älä valita</button></td>
-  </tr>
+  {% endfor %}
 </tbody>
 </table>
 {% endblock %}
