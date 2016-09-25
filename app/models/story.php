@@ -33,7 +33,7 @@
       $result = $query->fetch();
 
       if($result){
-        $story = new Stories(array(
+        $story[] = new Stories(array(
           'id' => $result['id'],
           'points' => $result['points'],
           'story' => $result['story'],

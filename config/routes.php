@@ -9,7 +9,7 @@
   });
 
   $routes->get('/tarina/:id', function($id) {
-    HelloWorldController::story();
+    SingleStoryController::story($id);
   });
 
   $routes->get('/topten', function() {

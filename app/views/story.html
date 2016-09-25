@@ -11,12 +11,14 @@
   </tr>
 </thead>
 <tbody>
+  {% for storyitem in story %}
   <tr>
-    <td>Seppo</td>
-    <td>Kävin paskalla ja vessapaperi loppui! Ai että kun pistää vihaksi.</td>
-    <td>120</td>
-    <td><button class="btn btn-success btn-margin">Vituttaa</button><button class="btn btn-warning">Älä valita</button></td>
+    <td>{{storyitem.createdby}}</td>
+    <td>{{storyitem.story}}</td>
+    <td>{{storyitem.points}}</td>
+    <td><button class="btn btn-success btn-margin">Vituttaa!</button><button class="btn btn-danger">Älä valita!</button></td>
   </tr>
+    {% endfor %}
 </tbody>
 </table>
 
