@@ -6,12 +6,12 @@
     <p>Vituttaako.com on verkkosivu, jolla voit kertoa mikä mieltäsi painaa. Jaa asiat jotka sinua eniten nyppivät, nyt täysin anonyymisti!</p>
   </div>
 
-    <form class="share-story">
+    <form class="share-story" method="post" action="{{base_path}}/tallennatarina">
     <div class="form-group">
       <label for="comment">Mieltäni painaa:</label>
-      <textarea class="form-control" rows="15" id="comment"></textarea>
+      <textarea class="form-control" rows="15" id="story" name="story"></textarea>
     </div>
-    <button class="btn btn-success btn-large send-button col-md-offset-3">Lähetä</button>
+    <button class="btn btn-success btn-large send-button col-md-offset-3" type="submit">Lähetä</button>
   </form>
 
   <div class="col-md-6">

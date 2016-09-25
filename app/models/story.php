@@ -45,4 +45,11 @@
       return null;
     }
 
+    public function saveStory(){
+     $query = DB::connection()->prepare('INSERT INTO stories (story) VALUES (:story) RETURNING id');
+     $query->execute(array('story' => $this->story));
+     $row = $query->fetch();
+     $this->id = $row['id'];
+    }
+
   }
