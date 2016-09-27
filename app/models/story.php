@@ -84,8 +84,8 @@
     }
 
     public function saveStory(){
-     $query = DB::connection()->prepare('INSERT INTO stories (story) VALUES (:story) RETURNING id');
-     $query->execute(array('story' => $this->story));
+     $query = DB::connection()->prepare('INSERT INTO stories (story, points, createdby) VALUES (:story, :points, :createdby) RETURNING id');
+     $query->execute(array('story' => $this->story, 'points' => $this->points, 'createdby' => $this->createdby));
      $row = $query->fetch();
      $this->id = $row['id'];
     }
