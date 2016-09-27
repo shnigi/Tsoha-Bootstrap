@@ -8,9 +8,9 @@ class SingleStoryController extends BaseController{
     View::make('story.html', array('story' => $story, 'comments' => $comments));
   }
 
-  public static function addComment(){
+  public static function addComment($id){
     $params = $_POST;
-    $story_id = 1;
+    $story_id = $id;
 
     $comment = new Comments(array(
       'comment' => $params['comment'],

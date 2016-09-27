@@ -31,6 +31,6 @@
     StoryController::createNewStory();
   });
 
-  $routes->post('/tallennakommentti', function() {
-    SingleStoryController::addComment();
+  $routes->post('/tallennakommentti/:id', function($id) {
+    SingleStoryController::addComment($id);
   });

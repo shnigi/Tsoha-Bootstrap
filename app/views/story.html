@@ -18,12 +18,12 @@
     <td>{{storyitem.points}}</td>
     <td><button class="btn btn-success btn-margin">Vituttaa!</button><button class="btn btn-danger">Älä valita!</button></td>
   </tr>
-    {% endfor %}
 </tbody>
 </table>
 
 <h2>Kommentoi</h2>
-<form method="post" action="{{base_path}}/tallennakommentti">
+<form method="post" action="{{base_path}}/tallennakommentti/{{storyitem.id}}">
+{% endfor %}
 <div class="form-group">
   <textarea class="form-control" rows="5" name="comment" id="comment"></textarea>
 </div>
