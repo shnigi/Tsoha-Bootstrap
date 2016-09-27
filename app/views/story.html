@@ -31,13 +31,15 @@
 </form>
 <br>
 <h2>Kommentit</h2>
+{% for comment in comments %}
 <div class="panel panel-default">
 <div class="panel-heading">
-<strong>Jorma</strong> <span class="text-muted">Kommentoi 3 päivää sitten</span>
+<strong>{{comment.createdby}}</strong> <span class="text-muted">Kommentoi {{comment.updated}}</span>
 </div>
 <div class="panel-body">
-No voihan nenä!
+{{comment.comment}}
 </div><!-- /panel-body -->
 </div><!-- /panel panel-default -->
+{% endfor %}
 
 {% endblock %}
