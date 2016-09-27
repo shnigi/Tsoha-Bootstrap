@@ -28,8 +28,8 @@
     }
 
     public function saveComment(){
-      $query = DB::connection()->prepare('INSERT INTO comments (comment, story_id) VALUES (:comment, :story_id) RETURNING story_id');
-      $query->execute(array('comment' => $this->comment, 'story_id' => $this->story_id));
+      $query = DB::connection()->prepare('INSERT INTO comments (comment, story_id, createdby) VALUES (:comment, :story_id, :createdby) RETURNING story_id');
+      $query->execute(array('comment' => $this->comment, 'story_id' => $this->story_id, 'createdby' => $this->createdby));
       $row = $query->fetch();
       $this->id = $row['story_id'];
     }

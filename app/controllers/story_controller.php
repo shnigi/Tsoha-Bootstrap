@@ -11,10 +11,12 @@ class SingleStoryController extends BaseController{
   public static function addComment($id){
     $params = $_POST;
     $story_id = $id;
+    $user = "Anonymous";
 
     $comment = new Comments(array(
       'comment' => $params['comment'],
-      'story_id' => $story_id
+      'story_id' => $story_id,
+      'createdby' => $user
     ));
 
     $comment->saveComment();
