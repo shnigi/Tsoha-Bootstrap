@@ -1,6 +1,6 @@
 <?php
   $routes->get('/', function() {
-    HelloWorldController::index();
+    IndexController::index();
   });
 
   $routes->get('/selaa', function() {

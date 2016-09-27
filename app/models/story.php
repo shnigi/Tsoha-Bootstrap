@@ -27,6 +27,44 @@
       return $stories;
     }
 
+    public static function newestStories(){
+      $query = DB::connection()->prepare('SELECT * FROM stories ORDER BY updated DESC;');
+      $query->execute();
+      $results = $query->fetchAll();
+      $newestStories = array();
+
+      foreach($results as $result){
+        $newestStories[] = new Stories(array(
+          'id' => $result['id'],
+          'points' => $result['points'],
+          'story' => $result['story'],
+          'updated' => $result['updated'],
+          'createdby' => $result['createdby']
+        ));
+      }
+
+      return $newestStories;
+    }
+
+    public static function bestStories(){
+      $query = DB::connection()->prepare('SELECT * FROM stories ORDER BY points DESC;');
+      $query->execute();
+      $results = $query->fetchAll();
+      $bestStories = array();
+
+      foreach($results as $result){
+        $bestStories[] = new Stories(array(
+          'id' => $result['id'],
+          'points' => $result['points'],
+          'story' => $result['story'],
+          'updated' => $result['updated'],
+          'createdby' => $result['createdby']
+        ));
+      }
+
+      return $bestStories;
+    }
+
     public static function selectedStory($id){
       $query = DB::connection()->prepare('SELECT * FROM stories WHERE id = :id LIMIT 1');
       $query->execute(array('id' => $id));

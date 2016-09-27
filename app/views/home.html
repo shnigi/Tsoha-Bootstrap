@@ -25,14 +25,12 @@
        </tr>
      </thead>
      <tbody>
+       {% for story in newestStories %}
        <tr>
-         <td>Seppo</td>
-         <td>Kävin paskalla ja vessapaperi loppui! Ai että kun pistää vihaksi.</td>
+         <td>{{story.createdby}}</td>
+         <td>{{story.story}}</td>
        </tr>
-       <tr>
-         <td>Anonyymi</td>
-         <td>Olin juuri menossa bussiin, ensinnäkin matkakortista oli loppunut aika ja sen lisäksi lompakkoni levisi lattialle... Lue lisää</td>
-       </tr>
+      {% endfor %}
      </tbody>
    </table>
 
@@ -48,14 +46,12 @@
       </tr>
     </thead>
     <tbody>
+      {% for story in bestStories %}
       <tr>
-        <td>Seppo</td>
-        <td>Kävin paskalla ja vessapaperi loppui! Ai että kun pistää vihaksi.</td>
+        <td>{{story.createdby}}</td>
+        <td>{{story.story}}</td>
       </tr>
-      <tr>
-        <td>Anonyymi</td>
-        <td>Olin juuri menossa bussiin, ensinnäkin matkakortista oli loppunut aika ja sen lisäksi lompakkoni levisi lattialle... Lue lisää</td>
-      </tr>
+        {% endfor %}
     </tbody>
   </table>
   </div>
