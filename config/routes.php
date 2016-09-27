@@ -30,3 +30,7 @@
   $routes->post('/tallennatarina', function() {
     StoryController::createNewStory();
   });
+
+  $routes->post('/tallennakommentti', function() {
+    SingleStoryController::addComment();
+  });
