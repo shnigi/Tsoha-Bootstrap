@@ -12,7 +12,7 @@
   });
 
   $routes->get('/topten', function() {
-    HelloWorldController::topten();
+    TopTenController::index();
   });
 
   $routes->get('/rekisteroidy', function() {

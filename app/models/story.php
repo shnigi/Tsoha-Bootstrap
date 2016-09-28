@@ -65,6 +65,25 @@
       return $bestStories;
     }
 
+    public static function topTenStories(){
+      $query = DB::connection()->prepare('SELECT * FROM stories ORDER BY points DESC LIMIT 10;');
+      $query->execute();
+      $results = $query->fetchAll();
+      $topTenStories = array();
+
+      foreach($results as $result){
+        $topTenStories[] = new Stories(array(
+          'id' => $result['id'],
+          'points' => $result['points'],
+          'story' => $result['story'],
+          'updated' => $result['updated'],
+          'createdby' => $result['createdby']
+        ));
+      }
+
+      return $topTenStories;
+    }
+
     public static function selectedStory($id){
       $query = DB::connection()->prepare('SELECT * FROM stories WHERE id = :id LIMIT 1');
       $query->execute(array('id' => $id));

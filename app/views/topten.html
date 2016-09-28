@@ -13,18 +13,14 @@
   </tr>
 </thead>
 <tbody>
+  {% for top in topten %}
   <tr>
-    <th>1.</th>
-    <td>Seppo</td>
-    <td>Kävin paskalla ja vessapaperi loppui! Ai että kun pistää vihaksi.</td>
-    <td>150</td>
+    <td>{{loop.index}}</td>
+    <td>{{top.createdby}}</td>
+    <td>{{top.story}}</td>
+    <td>{{top.points}}</td>
   </tr>
-  <tr>
-    <th>2.</th>
-    <td>Anonyymi</td>
-    <td>Olin juuri menossa bussiin, ensinnäkin matkakortista oli loppunut aika ja sen lisäksi lompakkoni levisi lattialle... Lue lisää</td>
-    <td>120</td>
-  </tr>
+  {% endfor %}
 </tbody>
 </table>
 {% endblock %}
