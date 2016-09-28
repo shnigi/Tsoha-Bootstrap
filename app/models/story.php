@@ -84,10 +84,22 @@
     }
 
     public function saveStory(){
-     $query = DB::connection()->prepare('INSERT INTO stories (story, points, createdby) VALUES (:story, :points, :createdby) RETURNING id');
-     $query->execute(array('story' => $this->story, 'points' => $this->points, 'createdby' => $this->createdby));
-     $row = $query->fetch();
-     $this->id = $row['id'];
+      $query = DB::connection()->prepare('INSERT INTO stories (story, points, createdby) VALUES (:story, :points, :createdby) RETURNING id');
+      $query->execute(array('story' => $this->story, 'points' => $this->points, 'createdby' => $this->createdby));
+      $row = $query->fetch();
+      $this->id = $row['id'];
+    }
+
+    public function validate_story(){
+      $errors = array();
+      if($this->story == '' || $this->story == null){
+        $errors[] = 'Tarina ei saa olla tyhjä!';
+      }
+      if(strlen($this->story) < 6){
+        $errors[] = 'Tarinan pituuden tulee olla vähintään 6 merkkiä!';
+      }
+
+      return $errors;
     }
 
   }
