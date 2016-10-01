@@ -25,4 +25,14 @@
        Redirect::to('/omat', array('message' => 'Tarinan muokkaus onnistui.'));
     }
 
+    public static function deleteStory($id){
+
+      $deleteStory = new OwnPage(array(
+        'id' => $id
+      ));
+
+      $deleteStory->deleteStory();
+       Redirect::to('/omat', array('message' => 'Tarina poistettu.'));
+    }
+
   }

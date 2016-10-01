@@ -46,3 +46,7 @@
   $routes->post('/editoitarinaa/:id', function($id) {
     ownController::editStory($id);
   });
+
+  $routes->post('/poista/:id', function($id) {
+    ownController::deleteStory($id);
+  });

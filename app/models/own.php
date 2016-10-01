@@ -50,4 +50,9 @@
       $query->execute(array('story' => $this->story, 'id' => $this->id));
     }
 
+    public function deleteStory(){
+      $query = DB::connection()->prepare('DELETE FROM stories WHERE id = :id');
+      $query->execute(array('id' => $this->id));
+    }
+
   }

@@ -21,7 +21,9 @@
       <a href="{{base_path}}/muokkaa/{{story.id}}"><button class="btn btn-info">Muokkaa</button></a>
     </td>
     <td>
-        <button class="btn btn-danger">Poista</button>
+      <form method="post" action="{{base_path}}/poista/{{story.id}}">
+      <button class="btn btn-danger" type="submit">Poista</button>
+    </form>
     </td>
   </tr>
   {% endfor %}
