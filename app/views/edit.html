@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for story in ownStory %}
+<form class="share-story" method="post" action="{{base_path}}/editoitarinaa/{{story.id}}">
+<div class="form-group">
+  <label for="comment">Muokkaa:</label>
+  <textarea class="form-control" rows="15" id="story" name="story">{{story.story}}</textarea>
+</div>
+<button class="btn btn-success" type="submit">Tallenna</button>
+<a href="{{base_path}}/omat"><button type="button" class="btn btn-danger">Peruuta</button></a>
+
+</form>
+  {% endfor %}
+
+
+{% endblock %}
