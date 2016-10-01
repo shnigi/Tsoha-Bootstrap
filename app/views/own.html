@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>Tarina</th>
+    <th>Pisteet</th>
+    <th>Muokkaa</th>
+    <th>Poista</th>
+  </tr>
+</thead>
+<tbody>
+  {% for story in ownStories %}
+  <tr>
+    <td>{{story.story}}</td>
+    <td>{{story.points}}</td>
+    <td>
+      <a href="{{base_path}}/muokkaa/{{story.id}}"><button class="btn btn-info">Muokkaa</button></a>
+    </td>
+    <td>
+        <button class="btn btn-danger">Poista</button>
+    </td>
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+{% endblock %}

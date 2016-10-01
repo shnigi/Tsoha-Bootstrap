@@ -3,6 +3,10 @@
     IndexController::index();
   });
 
+  $routes->get('/omat', function() {
+    ownController::index();
+  });
+
   $routes->get('/selaa', function() {
     StoryController::index();
   });
@@ -33,4 +37,12 @@
 
   $routes->post('/tallennakommentti/:id', function($id) {
     SingleStoryController::addComment($id);
+  });
+
+  $routes->get('/muokkaa/:id', function($id) {
+    ownController::ownStory($id);
+  });
+
+  $routes->post('/editoitarinaa/:id', function($id) {
+    ownController::editStory($id);
   });

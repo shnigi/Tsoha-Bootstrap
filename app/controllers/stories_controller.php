@@ -18,8 +18,17 @@ class StoryController extends BaseController{
       'createdby' => $createdby
     ));
 
-    $story->saveStory();
-     Redirect::to('/tarina/' . $story->id, array('message' => 'Tarina lisätty onnistuneesti.'));
+    $errors = $story->validate_story();
+
+    if(count($errors) > 0){
+      echo 'Tarina on liian lyhyt!';
+    }
+    else {
+      $story->saveStory();
+      Redirect::to('/tarina/' . $story->id, array('message' => 'Tarina lisätty onnistuneesti.'));  
+    }
+
+
   }
 
 }
