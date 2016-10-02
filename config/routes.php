@@ -23,10 +23,6 @@
     HelloWorldController::rekisteroidy();
   });
 
-  $routes->get('/kirjaudu', function() {
-    HelloWorldController::kirjaudu();
-  });
-
   $routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
   });
@@ -49,4 +45,12 @@
 
   $routes->post('/poista/:id', function($id) {
     ownController::deleteStory($id);
+  });
+
+  $routes->get('/kirjaudu', function() {
+    UserController::login();
+  });
+
+  $routes->post('/login', function(){
+    UserController::handle_login();
   });

@@ -4,14 +4,14 @@
 <h1>Kirjaudu sisään</h1>
 <p>Etkö ole vielä käyttäjä? Rekisteröidy <a href="{{base_path}}/rekisteroidy">täällä</a></p>
 
-                    <form action="">
+                    <form method="post" action="{{base_path}}/login">
                         <div class="form-group">
                             <label for="username-email">Käyttäjänimi</label>
-                            <input value='' id="username" placeholder="Käyttäjänimi" type="text" class="form-control" />
+                            <input value='{{username}}' name="username" placeholder="Käyttäjänimi" type="text" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="password">Salasana</label>
-                            <input id="password" value='' placeholder="Salasana" type="text" class="form-control" />
+                            <input name="password" value='{{password}}' placeholder="Salasana" type="password" class="form-control" />
                         </div>
                         <div class="input-group">
                           <div class="checkbox">
