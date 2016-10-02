@@ -54,3 +54,7 @@
   $routes->post('/login', function(){
     UserController::handle_login();
   });
+
+  $routes->post('/register', function(){
+    UserController::registerNewUser();
+  });

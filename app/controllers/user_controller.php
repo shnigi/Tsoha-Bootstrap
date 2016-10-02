@@ -11,11 +11,24 @@ class UserController extends BaseController{
     $user = User::authenticate($params['username'], $params['password']);
 
     if(!$user){
-      View::make('user/login.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'username' => $params['username']));
+      View::make('kirjaudu.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'username' => $params['username']));
     }else{
-      // $_SESSION['user'] = $user->id;
+      // $_SESSION['user'] = $user['username'];
+      // $_SESSION['isadmin'] = $user['isadmin'];
 
       Redirect::to('/', array('message' => 'Tervetuloa takaisin !'));
+    }
+  }
+
+  public static function registerNewUser(){
+    $params = $_POST;
+
+    $registerUser = User::register($params['username'], $params['password'], $params['email']);
+
+    if(!$registerUser){
+      View::make('rekisteroidy.html', array('error' => 'Jotain meni pieleen!'));
+    }else{
+      Redirect::to('/kirjaudu', array('message' => 'Rekisteröinti onnistui!'));
     }
   }
 
