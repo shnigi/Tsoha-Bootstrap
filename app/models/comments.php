@@ -34,4 +34,16 @@
       $this->id = $row['story_id'];
     }
 
+    public function validate_comment(){
+      $errors = array();
+      if($this->comment == '' || $this->comment == null){
+        $errors[] = 'Kommentti ei saa olla tyhjä!';
+      }
+      if(strlen($this->comment) < 3){
+        $errors[] = 'Kommentin pituuden tulee olla vähintään 3 merkkiä!';
+      }
+
+      return $errors;
+    }
+
 }

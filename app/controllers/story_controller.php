@@ -19,8 +19,17 @@ class SingleStoryController extends BaseController{
       'createdby' => $user
     ));
 
-    $comment->saveComment();
-     Redirect::to('/tarina/' . $comment->story_id, array('message' => 'Kommentti lisätty.'));
+    $errors = $comment->validate_comment();
+
+    if(count($errors) > 0){
+      echo 'Kommentti on liian lyhyt!';
+    }
+    else {
+      $comment->saveComment();
+      Redirect::to('/tarina/' . $comment->story_id, array('message' => 'Kommentti lisätty.'));
+    }
+
+
   }
 
 }
