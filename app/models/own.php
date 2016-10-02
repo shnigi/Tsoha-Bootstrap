@@ -51,7 +51,7 @@
     }
 
     public function deleteStory(){
-      $query = DB::connection()->prepare('DELETE FROM stories WHERE id = :id');
+      $query = DB::connection()->prepare('DELETE FROM stories WHERE "id"=:id');
       $query->execute(array('id' => $this->id));
     }
 
