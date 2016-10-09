@@ -62,3 +62,7 @@
   $routes->post('/register', function(){
     UserController::registerNewUser();
   });
+
+  $routes->post('/logout', function(){
+    UserController::logout();
+  });
