@@ -1,9 +1,13 @@
 <?php
+  function check_logged_in(){
+    BaseController::check_logged_in();
+  }
+
   $routes->get('/', function() {
     IndexController::index();
   });
 
-  $routes->get('/omat', function() {
+  $routes->get('/omat', 'check_logged_in', function() {
     ownController::index();
   });
 
