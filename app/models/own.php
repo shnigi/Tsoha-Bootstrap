@@ -8,9 +8,9 @@
       parent::__construct($attributes);
     }
 
-    public static function ownStories(){
-      $query = DB::connection()->prepare('SELECT * FROM stories');
-      $query->execute();
+    public static function ownStories($createdby){
+      $query = DB::connection()->prepare('SELECT * FROM stories WHERE createdby = :createdby');
+      $query->execute(array('createdby' => $createdby));
       $results = $query->fetchAll();
       $stories = array();
 

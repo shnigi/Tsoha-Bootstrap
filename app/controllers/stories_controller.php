@@ -10,7 +10,13 @@ class StoryController extends BaseController{
   public static function createNewStory(){
     $params = $_POST;
     $points = 0;
-    $createdby = "Anonymous";
+    $user = BaseController::get_user_logged_in();
+    if ($user){
+      $createdby = $user->username;
+    }
+    else {
+      $createdby = "Anonymous";
+    }
 
     $story = new Stories(array(
       'story' => $params['story'],
@@ -25,7 +31,7 @@ class StoryController extends BaseController{
     }
     else {
       $story->saveStory();
-      Redirect::to('/tarina/' . $story->id, array('message' => 'Tarina lisätty onnistuneesti.'));  
+      Redirect::to('/tarina/' . $story->id, array('message' => 'Tarina lisätty onnistuneesti.'));
     }
 
 

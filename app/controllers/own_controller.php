@@ -3,7 +3,11 @@
   class ownController extends BaseController{
 
     public static function index(){
-      $ownStories = OwnPage::ownStories();
+      $user = BaseController::get_user_logged_in();
+      if ($user){
+        $createdby = $user->username;
+        $ownStories = OwnPage::ownStories($createdby);
+      }
       View::make('own.html', array('ownStories' => $ownStories));
     }
 
