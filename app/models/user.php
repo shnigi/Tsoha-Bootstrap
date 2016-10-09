@@ -11,8 +11,25 @@
     public static function authenticate($username, $password){
       $query = DB::connection()->prepare('SELECT * FROM appuser WHERE username = :username AND password =:password LIMIT 1');
       $query->execute(array('username' => $username, 'password' => $password));
-      $results = $query->fetch();
-      return $results;
+      $results = $query->fetchAll();
+      if($results){
+        $user = array();
+
+        foreach($results as $result){
+          $user[] = new User(array(
+            'username' => $result['username'],
+            'password' => $result['password'],
+            'emailaddr' => $result['emailaddr'],
+            'isadmin' => $result['isadmin'],
+            'registerdate' => $result['registerdate']
+          ));
+        }
+          return $user;
+        }
+        else {
+          return null;
+        }
+
     }
 
     public static function register($username, $password, $email){

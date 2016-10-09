@@ -4,26 +4,26 @@
 <h1>Kirjaudu sisään</h1>
 <p>Etkö ole vielä käyttäjä? Rekisteröidy <a href="{{base_path}}/rekisteroidy">täällä</a></p>
 
-                    <form method="post" action="{{base_path}}/login">
-                        <div class="form-group">
-                            <label for="username-email">Käyttäjänimi</label>
-                            <input value='{{username}}' name="username" placeholder="Käyttäjänimi" type="text" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Salasana</label>
-                            <input name="password" value='{{password}}' placeholder="Salasana" type="password" class="form-control" />
-                        </div>
-                        <div class="input-group">
-                          <div class="checkbox">
-                            <label>
-                              <input id="login-remember" type="checkbox" name="remember" value="1"> Muista minut
-                            </label>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-default btn-login-submit btn-block m-t-md" value="Kirjaudu" />
-                        </div>
-                    </form>
+  <form method="post" action="{{base_path}}/login">
+      <div class="form-group">
+          <label for="username-email">Käyttäjänimi</label>
+          <input value='{{username}}' name="username" placeholder="Käyttäjänimi" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+          <label for="password">Salasana</label>
+          <input name="password" value='{{password}}' placeholder="Salasana" type="password" class="form-control" />
+      </div>
+      <div class="input-group">
+        <div class="checkbox">
+          <label>
+            <input id="login-remember" type="checkbox" name="remember" value="1"> Muista minut
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+          <input type="submit" class="btn btn-default btn-login-submit btn-block m-t-md" value="Kirjaudu" />
+      </div>
+  </form>
 
 
 {% endblock %}

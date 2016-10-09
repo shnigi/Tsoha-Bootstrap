@@ -11,10 +11,11 @@ class UserController extends BaseController{
     $user = User::authenticate($params['username'], $params['password']);
 
     if(!$user){
-      View::make('kirjaudu.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'username' => $params['username']));
-    }else{
-      // $_SESSION['user'] = $user['username'];
-      // $_SESSION['isadmin'] = $user['isadmin'];
+      View::make('kirjaudu.html', array('error' => 'Väärä käyttäjätunnus tai salasana!'));
+    }
+    else{
+      $_SESSION['user'] = $user[0]->username;
+      $_SESSION['user'] = $user[0]->isadmin;
 
       Redirect::to('/', array('message' => 'Tervetuloa takaisin !'));
     }
