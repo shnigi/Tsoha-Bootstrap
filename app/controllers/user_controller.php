@@ -15,7 +15,7 @@ class UserController extends BaseController{
     }
     else{
       $_SESSION['user'] = $user[0]->username;
-      $_SESSION['user'] = $user[0]->isadmin;
+      $_SESSION['isadmin'] = $user[0]->isadmin;
 
       Redirect::to('/', array('message' => 'Tervetuloa takaisin !'));
     }
