@@ -39,15 +39,15 @@
     SingleStoryController::addComment($id);
   });
 
-  $routes->get('/muokkaa/:id', function($id) {
+  $routes->get('/muokkaa/:id', 'check_logged_in', function($id) {
     ownController::ownStory($id);
   });
 
-  $routes->post('/editoitarinaa/:id', function($id) {
+  $routes->post('/editoitarinaa/:id', 'check_logged_in', function($id) {
     ownController::editStory($id);
   });
 
-  $routes->post('/poista/:id', function($id) {
+  $routes->post('/poista/:id', 'check_logged_in', function($id) {
     ownController::deleteStory($id);
   });
 
