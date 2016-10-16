@@ -18,10 +18,19 @@
        }
     }
 
-    public static function validate_string_length($string, $length){
-      if ($string !== "" && $string !== null && $string.length > 6){
-
+    public static function validate_string_length($string){
+      $errors = array();
+      if($string === "" && $string === null){
+        $errors[] = 'Kenttä ei saa olla tyhjä!';
       }
+      if(strlen($string) < 6){
+        $errors[] = 'Syötteen tulee olla vähintään 6 merkkiä!';
+      }
+      if(strlen($string) > 2000){
+        $errors[] = 'Teksti on liian pitkä. Enintään 2000 merkkiä!';
+      }
+
+      return $errors;
     }
 
   }
