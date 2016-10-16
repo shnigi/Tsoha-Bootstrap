@@ -27,7 +27,7 @@ class StoryController extends BaseController{
     $errors = $story->validate_story();
 
     if(count($errors) > 0){
-      echo 'Tarina on liian lyhyt!';
+      Redirect::to('/', array('messages' => $errors));
     }
     else {
       $story->saveStory();

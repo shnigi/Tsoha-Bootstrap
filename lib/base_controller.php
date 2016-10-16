@@ -18,4 +18,10 @@
        }
     }
 
+    public static function validate_string_length($string, $length){
+      if ($string !== "" && $string !== null && $string.length > 6){
+
+      }
+    }
+
   }

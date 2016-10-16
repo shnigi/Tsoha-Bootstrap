@@ -117,6 +117,9 @@
       if(strlen($this->story) < 6){
         $errors[] = 'Tarinan pituuden tulee olla vähintään 6 merkkiä!';
       }
+      if(strlen($this->story) > 2000){
+        $errors[] = 'Tarina on liian pitkä. Enintään 2000 merkkiä!';
+      }
 
       return $errors;
     }
