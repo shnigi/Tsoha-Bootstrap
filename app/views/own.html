@@ -2,7 +2,16 @@
 
 {% block content %}
 
+{% if messages %}
+<div class="alert alert-success">
+  <strong>Onnistui!</strong>
+   {% for message in messages %}
+    {{message}}
+   {% endfor %}
+</div>
+{% endif %}
 
+<h1>Omat tarinat</h1>
 <table class="table table-striped">
 <thead>
   <tr>
@@ -29,4 +38,30 @@
   {% endfor %}
 </tbody>
 </table>
+
+<h1>Omat kommentit</h1>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Kommentti</th>
+      <th>Muokkaa</th>
+      <th>Poista</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for comment in comments %}
+    <tr>
+      <td>{{comment.comment}}</td>
+      <td>
+        <a href="{{base_path}}/muokkaakommenttia/{{comment.id}}"><button class="btn btn-info">Muokkaa</button></a>
+      </td>
+      <td>
+        <form method="post" action="{{base_path}}/poistakommentti/{{comment.id}}">
+        <button class="btn btn-danger" type="submit">Poista</button>
+      </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
 {% endblock %}

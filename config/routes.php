@@ -51,6 +51,10 @@
     ownController::deleteStory($id);
   });
 
+  $routes->post('/poistakommentti/:id', 'check_logged_in', function($id) {
+    ownController::deleteComment($id);
+  });
+
   $routes->get('/kirjaudu', function() {
     UserController::login();
   });

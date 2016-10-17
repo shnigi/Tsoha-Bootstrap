@@ -45,6 +45,17 @@
       return null;
     }
 
+    public static function ownComments($id){
+      $query = DB::connection()->prepare('SELECT * FROM comments WHERE createdby = :id');
+      $query->execute(array('id' => $id));
+      $result = $query->fetchAll();
+
+      if($result){
+        return $result;
+      }
+      return null;
+    }
+
     public function saveStory(){
       $query = DB::connection()->prepare('UPDATE stories SET "story"=:story WHERE "id"=:id');
       $query->execute(array('story' => $this->story, 'id' => $this->id));

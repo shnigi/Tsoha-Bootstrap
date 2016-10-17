@@ -46,4 +46,9 @@
       return $errors;
     }
 
+    public function deleteComment(){
+      $query = DB::connection()->prepare('DELETE FROM comments WHERE id=:id');
+      $query->execute(array('id' => $this->id));
+    }
+
 }

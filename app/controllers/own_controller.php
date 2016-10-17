@@ -7,8 +7,9 @@
       if ($user){
         $createdby = $user->username;
         $ownStories = OwnPage::ownStories($createdby);
+        $ownComments = OwnPage::ownComments($createdby);
       }
-      View::make('own.html', array('ownStories' => $ownStories));
+      View::make('own.html', array('ownStories' => $ownStories, 'comments' => $ownComments));
     }
 
     public static function ownStory($id){
@@ -37,6 +38,16 @@
 
       $deleteStory->deleteStory();
        Redirect::to('/omat', array('message' => 'Tarina poistettu.'));
+    }
+
+    public static function deleteComment($id){
+
+      $deleteStory = new Comments(array(
+        'id' => $id
+      ));
+
+      $deleteStory->deleteComment();
+       Redirect::to('/omat', array('messages' => 'Kommentti poistettu.'));
     }
 
   }
