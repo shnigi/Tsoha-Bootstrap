@@ -17,9 +17,19 @@
       View::make('edit.html', array('ownStory' => $ownStory));
     }
 
+    public static function ownComment($id){
+      $ownComment = OwnPage::ownComment($id);
+      View::make('editcomment.html', array('ownComment' => $ownComment));
+    }
+
     public static function editStory($id){
       $params = $_POST;
-      $user = "Anonymous";
+      if(isset($_SESSION['user'])){
+        $user = $_SESSION['user'];
+      }
+      else {
+        $user = "Anonymous";
+      }
 
       $story = new OwnPage(array(
         'story' => $params['story'],
@@ -28,6 +38,24 @@
 
       $story->saveStory();
        Redirect::to('/omat', array('message' => 'Tarinan muokkaus onnistui.'));
+    }
+
+    public static function editComment($id){
+      $params = $_POST;
+      if(isset($_SESSION['user'])){
+        $user = $_SESSION['user'];
+      }
+      else {
+        $user = "Anonymous";
+      }
+
+      $comment = new Comments(array(
+        'comment' => $params['comment'],
+        'id' => $id
+      ));
+
+      $comment->updateComment();
+       Redirect::to('/omat', array('messages' => 'Kommentin muokkaus onnistui.'));
     }
 
     public static function deleteStory($id){

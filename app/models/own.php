@@ -45,6 +45,24 @@
       return null;
     }
 
+    public static function ownComment($id){
+      $query = DB::connection()->prepare('SELECT * FROM comments WHERE id = :id LIMIT 1');
+      $query->execute(array('id' => $id));
+      $result = $query->fetch();
+
+      if($result){
+        $story[] = new Comments(array(
+          'id' => $result['id'],
+          'comment' => $result['comment'],
+          'story' => $result['story_id'],
+          'updated' => $result['updated'],
+          'createdby' => $result['createdby']
+        ));
+        return $story;
+      }
+      return null;
+    }
+
     public static function ownComments($id){
       $query = DB::connection()->prepare('SELECT * FROM comments WHERE createdby = :id');
       $query->execute(array('id' => $id));

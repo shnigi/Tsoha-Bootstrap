@@ -43,8 +43,16 @@
     ownController::ownStory($id);
   });
 
+  $routes->get('/muokkaakommenttia/:id', 'check_logged_in', function($id) {
+    ownController::ownComment($id);
+  });
+
   $routes->post('/editoitarinaa/:id', 'check_logged_in', function($id) {
     ownController::editStory($id);
+  });
+
+  $routes->post('/editoikommenttia/:id', 'check_logged_in', function($id) {
+    ownController::editComment($id);
   });
 
   $routes->post('/poista/:id', 'check_logged_in', function($id) {

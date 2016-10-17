@@ -51,4 +51,9 @@
       $query->execute(array('id' => $this->id));
     }
 
+    public function updateComment(){
+      $query = DB::connection()->prepare('UPDATE comments SET comment=:comment WHERE id=:id');
+      $query->execute(array('comment' => $this->comment, 'id' => $this->id));
+    }
+
 }

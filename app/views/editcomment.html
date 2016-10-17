@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for comment in ownComment %}
+<form class="share-story" method="post" action="{{base_path}}/editoikommenttia/{{comment.id}}">
+<div class="form-group">
+  <label for="comment">Muokkaa:</label>
+  <textarea class="form-control" rows="15" id="comment" name="comment">{{comment.comment}}</textarea>
+</div>
+<button class="btn btn-success" type="submit">Tallenna</button>
+<a href="{{base_path}}/omat"><button type="button" class="btn btn-danger">Peruuta</button></a>
+</form>
+{% endfor %}
+
+
+
+{% endblock %}
