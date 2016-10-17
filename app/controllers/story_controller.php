@@ -11,7 +11,12 @@ class SingleStoryController extends BaseController{
   public static function addComment($id){
     $params = $_POST;
     $story_id = $id;
-    $user = "Anonymous";
+    if(isset($_SESSION['user'])){
+      $user = $_SESSION['user'];
+    }
+    else {
+      $user = "Anonymous";
+    }
 
     $comment = new Comments(array(
       'comment' => $params['comment'],
