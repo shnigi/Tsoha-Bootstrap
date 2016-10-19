@@ -12,3 +12,9 @@ INSERT INTO stories (points, story, updated, createdby) VALUES (120, 'Olin juuri
 -- Kommentti taulun testidata
 INSERT INTO comments (comment, updated, createdby, story_id) VALUES ('No älä valita. Mitäs et ostanut tarpeeksi paskapaperia!', CURRENT_TIMESTAMP, 'testuser', 1);
 INSERT INTO comments (comment, updated, createdby, story_id) VALUES ('HAHA URPO!!!!', CURRENT_TIMESTAMP, 'testuser', 2);
+
+-- Categoria taulun testidata
+INSERT INTO categories (category) VALUES ('Vitutus');
+INSERT INTO categories (category) VALUES ('Masennus');
+INSERT INTO categories (category) VALUES ('Fuck everything');
+INSERT INTO categories (category) VALUES ('Antaa olla');

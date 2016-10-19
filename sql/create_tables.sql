@@ -21,3 +21,13 @@ CREATE TABLE comments(
   createdby varchar(50) REFERENCES appuser(username),
   story_id INTEGER REFERENCES stories(id)
 );
+
+CREATE TABLE categories(
+  id SERIAL PRIMARY KEY,
+  category varchar(200)
+);
+
+CREATE TABLE tarina_categories(
+  tarinaid int REFERENCES stories(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  categories int REFERENCES categories(id) ON UPDATE CASCADE ON DELETE CASCADE
+);

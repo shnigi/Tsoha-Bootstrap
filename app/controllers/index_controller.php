@@ -5,7 +5,10 @@
     public static function index(){
       $newestStories = Stories::newestStories();
       $bestStories = Stories::bestStories();
-      View::make('home.html', array('newestStories' => $newestStories, 'bestStories' => $bestStories));
+      $categories = Categories::getCategories();
+      View::make('home.html', array('newestStories' => $newestStories,
+                                    'bestStories' => $bestStories,
+                                    'categories' => $categories));
     }
 
   }

@@ -21,13 +21,12 @@
       <textarea class="form-control" rows="15" id="story" name="story"></textarea>
     </div>
     <div class="form-group">
-      <label for="sel1">Kategoria</label>
-      <select class="form-control" id="sel1">
-        <option>Vitutus</option>
-        <option>Masennus</option>
-        <option>Fuck everything</option>
-        <option>Nojoo</option>
-      </select>
+      <label for="categories">Kategoria</label><br>
+        {% for category in categories %}
+      <div class="checkbox-inline">
+        <label class="checkbox"><input type="checkbox" value="{{category.id}}">{{category.category}}</label>
+      </div>
+      {% endfor %}
     </div>
     <button class="btn btn-success btn-large send-button col-md-offset-3" type="submit">Lähetä</button>
   </form>
