@@ -24,7 +24,7 @@
       <label for="categories">Kategoria</label><br>
         {% for category in categories %}
       <div class="checkbox-inline">
-        <label class="checkbox"><input type="checkbox" value="{{category.id}}">{{category.category}}</label>
+        <label class="checkbox"><input type="checkbox" name="storycategory[]" value="{{category.id}}">{{category.category}}</label>
       </div>
       {% endfor %}
     </div>
