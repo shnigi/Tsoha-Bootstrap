@@ -7,6 +7,10 @@
     IndexController::index();
   });
 
+  $routes->post('/etsitarinaa', function() {
+    StoryController::findStory();
+  });
+
   $routes->get('/omat', 'check_logged_in', function() {
     ownController::index();
   });

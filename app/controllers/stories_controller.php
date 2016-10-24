@@ -12,6 +12,13 @@ class StoryController extends BaseController{
     View::make('stories.html', array('stories' => $storiesByCategory));
   }
 
+  public static function findStory(){
+    $params = $_POST;
+    $searchWord = $params['tarina'];
+    $foundStories = Stories::findStories($searchWord);
+    View::make('stories.html', array('stories' => $foundStories));
+  }
+
   public static function createNewStory(){
     $params = $_POST;
     $points = 0;

@@ -27,6 +27,25 @@
       return $stories;
     }
 
+    public static function findStories($keywords){
+      $query = DB::connection()->prepare("SELECT * FROM stories WHERE (story LIKE '%$keywords%')");
+      $query->execute();
+      $results = $query->fetchAll();
+      $stories = array();
+
+      foreach($results as $result){
+        $stories[] = new Stories(array(
+          'id' => $result['id'],
+          'points' => $result['points'],
+          'story' => $result['story'],
+          'updated' => $result['updated'],
+          'createdby' => $result['createdby']
+        ));
+      }
+
+      return $stories;
+    }
+
     public static function getStories($id){
       $query = DB::connection()->prepare('SELECT id, points, story, updated, createdby, categories FROM stories INNER JOIN tarina_categories ON (stories.id = tarina_categories.tarinaid) WHERE categories = :id;');
       $query->execute(array('id' => $id));
