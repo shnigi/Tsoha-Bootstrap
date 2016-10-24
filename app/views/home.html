@@ -15,6 +15,13 @@
   </div>
   {% endif %}
 
+  {% if message %}
+  <div class="alert alert-warning">
+    <strong>Varoitus!</strong>
+      {{message}}
+  </div>
+  {% endif %}
+
     <form class="share-story" method="post" action="{{base_path}}/tallennatarina">
     <div class="form-group">
       <label for="comment">Mieltäni painaa:</label>

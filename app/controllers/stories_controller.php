@@ -29,6 +29,9 @@ class StoryController extends BaseController{
     if(count($errors) > 0){
       Redirect::to('/', array('messages' => $errors));
     }
+    else if (!isset($params['storycategory'])){
+      Redirect::to('/', array('message' => 'Kategoria puuttuu'));
+    }
     else {
       $story->saveStory();
       Redirect::to('/tarina/' . $story->id, array('message' => 'Tarina lisätty onnistuneesti.'));
