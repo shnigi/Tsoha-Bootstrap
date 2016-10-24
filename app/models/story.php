@@ -107,8 +107,10 @@
       $query->execute(array('story' => $this->story, 'points' => $this->points, 'createdby' => $this->createdby));
       $row = $query->fetch();
       $this->id = $row['id'];
-      $query = DB::connection()->prepare('INSERT INTO tarina_categories (tarinaid, categories) VALUES (:storyid, :categoryid)');
-      $query->execute(array('storyid' => $this->id, 'categoryid' => $this->categories[0]));
+      foreach ($this->categories as $category) {
+        $query = DB::connection()->prepare('INSERT INTO tarina_categories (tarinaid, categories) VALUES (:storyid, :categoryid)');
+        $query->execute(array('storyid' => $this->id, 'categoryid' => $category));
+      }
     }
 
     public function validate_story(){
