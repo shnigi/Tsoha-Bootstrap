@@ -18,10 +18,18 @@ class StoryController extends BaseController{
       $createdby = "Anonymous";
     }
 
+    if(isset($params['storycategory'])){
+      $categories = $params['storycategory'];
+    }
+    else {
+      $categories = null;
+    }
+
     $story = new Stories(array(
       'story' => $params['story'],
       'points' => $points,
-      'createdby' => $createdby
+      'createdby' => $createdby,
+      'categories' => $categories
     ));
 
     $errors = $story->validate_story();
