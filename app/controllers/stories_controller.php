@@ -7,6 +7,11 @@ class StoryController extends BaseController{
     View::make('stories.html', array('stories' => $stories));
   }
 
+  public static function getStoryByCategory($id){
+    $storiesByCategory = Stories::getStories($id);
+    View::make('stories.html', array('stories' => $storiesByCategory));
+  }
+
   public static function createNewStory(){
     $params = $_POST;
     $points = 0;

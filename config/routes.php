@@ -15,6 +15,10 @@
     StoryController::index();
   });
 
+  $routes->get('/selaa/:id', function($id) {
+    StoryController::getStoryByCategory($id);
+  });
+
   $routes->get('/tarina/:id', function($id) {
     SingleStoryController::story($id);
   });
