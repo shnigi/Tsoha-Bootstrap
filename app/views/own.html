@@ -31,7 +31,7 @@
     </td>
     <td>
       <form method="post" action="{{base_path}}/poista/{{story.id}}">
-      <button class="btn btn-danger" type="submit">Poista</button>
+      <button class="btn btn-danger" type="submit" onclick="return confirm('Oletko varma?')">Poista</button>
     </form>
     </td>
   </tr>
@@ -57,7 +57,7 @@
       </td>
       <td>
         <form method="post" action="{{base_path}}/poistakommentti/{{comment.id}}">
-        <button class="btn btn-danger" type="submit">Poista</button>
+        <button class="btn btn-danger" type="submit" onclick="return confirm('Oletko varma?')">Poista</button>
       </form>
       </td>
     </tr>
